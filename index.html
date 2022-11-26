@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<!--
+    Name: Tianna Lue-Lim (2109411), Markayla Lawrence (2101566), Dekardiago Nelson (2106568), Shavar Black (2002379)
+    Web Programming Group Assignment
+    Due Date: 25th November, 2022
+-->
+
+<html lang="en"> <!--sets the language to English-->
+    <head>
+        <title> Akatsuki Games: Jeopardy </title>
+        <!--Meta Tags-->
+        <meta charset="UTF-8">
+        <meta name="author" content="Tianna Lue-Lim (2109411), Markayla Lawrence (2101566), Dekardiago Nelson (2106568), Shavar Black (2002379)">
+        <meta name="description" content="Jeopardy Game">
+        <link rel="icon" type="image/x-icon" href="Akatsuki_Jeopardy.png"> <!--favicon-->
+
+        <!--Link to Stylesheet-->
+        <link rel="stylesheet" type="text/css" href="jeopardy.css">
+        
+        <style>
+            img /*image styling*/
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 350px;
+            }
+
+            /*styling for links*/
+            a:link, a:visited
+            {
+                font-size: 20px;
+                color: #F0FFFF; /*text colour*/
+                text-decoration: none; /*removes the underline*/
+            }
+            a:hover, a:active
+            {
+                color: #DA84CE;
+            }
+
+            /*styling for link with the signup id*/
+            #signup
+            {
+                color: #DA84CE;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--div containing a navigation bar and logo that are hidden until the player finishes registering-->
+        <div id="navigation" style="display: none;">
+            <img src="Akatsuki_Jeopardy.png" alt="Jeopardy"> <br>
+
+            <hr style="color: #F4E8BC;"> <!--insert coloured horizontal line-->
+
+            <nav style="padding-right: 25px;">
+                <div style="text-align: right; padding-top: 10px; padding-bottom: 10px; width: 100%;">
+                   <a href="#playarea">Return to Game</a> <!--link to return to play area-->
+                </div>
+            </nav>
+
+            <hr style="color: #F4E8BC;">
+        </div>
+
+        <img src="Akatsuki_Jeopardy.png" alt="Jeopardy" id="logo"> <!--website logo-->
+        <h1 style="text-align: center;" id="welcome"> Welcome to Jeopardy! </h1>
+        
+        <!--short game description-->
+        <div id="para">
+            <hr style="color: #F4E8BC; width: 50%">
+
+            <p> Created by Merv and Julann Griffin, Jeopardy is a game show which first aired on NBC in 1964. The show is a quiz competition 
+            that reverses the question-and-answer format used in traditional quiz shows. Contestants are presented with trivia clues phrased 
+            as answers, to which they must respond in the form of a question that correctly identifies whatever the clue is describing.
+            <br><br>
+            Click the link below to register. &nbsp; Players must be older than 12 years old. </p>
+
+            <a href="#register" id="signup"> Sign Up </a> <!--button uses bookmark to take the player to the registration form-->
+
+            <hr style="color: #F4E8BC; width: 50%"> <br>
+
+        </div>
+
+        <br><br>
+        
+        <a name="register" href=""></a> <!--bookmark connecting to Sign Up button above-->
+
+        <!--box model used to style the form-->
+        <div id="box">
+            <h1 style="text-align: center;"> Registration </h1>
+
+            <!--registration form for entering player data-->
+            <form id="registration" name="registration">
+                <div class="row">
+                    <label for="fname"> <b>First Name: <span style="color: #FF0000; font-size: 20px;"> &lowast;</span></b> </label>
+                    <input type="text" id="fname" name="First Name">
+                </div> <br>
+
+                <div class="row">
+                    <label for="lname"> <b>Last Name: <span style="color: #FF0000; font-size: 20px;"> &lowast;</span></b> </label>
+                    <input type="text" id="lname" name="Last Name">
+                </div> <br>
+
+                <!--age changes when the value of DOB is changed-->
+                <div class="row">
+                    <label for="dob"> <b>Date of Birth: <span style="color: #FF0000; font-size: 20px;"> &lowast;</span></b> </label>
+                    <input type="date" id="dob" name="DOB" max="2022-11-25" onchange="calculateAge()"
+                    style="height: 27px; width: 303px;">
+                </div> <br>
+                    
+                <div class="row">
+                    <label for="age"> <b>Age:</b> </label>
+                    <input type="number" id="age" name="playerage" placeholder="age" disabled>
+                </div> <br>
+
+                <div class="row">
+                    <label for="email"> <b>Email:</b> </label>
+                    <input type="email" id="email" name="email" placeholder="youremail@someemail.com">
+                </div> <br>
+
+                <div class="row">
+                    <label> <b>Gender: <span style="color: #FF0000; font-size: 20px;"> &lowast;</span></b> </label>
+                    <input type="radio" id="male" name="gender" value="Male"> &nbsp; <span style="padding-top: 5px;">Male</span>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <input type="radio" id="female" name="gender" value="Female"> &nbsp; <span style="padding-top: 5px;">Female</span>
+                </div> <br>
+
+                <div class="row">
+                    <label for="addressstreet"> <b>Street:</b> </label>
+                    <input type="text" id="addressstreet" name="street">
+                </div> <br>
+
+                <div class="row">
+                    <label for="addresscity"> <b>City:</b> </label>
+                    <input type="text" id="addresscity" name="city">
+                </div> <br>
+
+                <div class="row">
+                    <label for="addresstown"> <b>Town: <span style="color: #FF0000; font-size: 20px;"> &lowast;</span></b> </label>
+                    <input type="text" id="addresstown" name="town">
+                </div> <br>
+
+                <div class="row">
+                    <label for="addresscountry"> <b>Country:</b> </label>
+                    <input type="text" id="addresscountry" name="country">
+                </div> <br>
+
+                <div class="row">
+                    <label> <b>Educational Level: <span style="color: #FF0000; font-size: 20px;"> &lowast;</span></b> </label>
+                    <input type="radio" id="primary" name="education" value="Primary"> &nbsp; <span style="padding-top: 5px;">Primary</span>
+                    &nbsp; &nbsp;
+                    <input type="radio" id="secondary" name="education" value="Secondary"> &nbsp; <span style="padding-top: 5px;">Secondary</span>
+                    &nbsp; &nbsp;
+                    <input type="radio" id="tertiary" name="education" value="Tertiary"> &nbsp; <span style="padding-top: 5px;">Tertiary</span>
+                </div> <br>
+
+                <div class="row">
+                    <label for="img"> <b>Image of Self:</b> </label>
+                    <input type="file" id="img" name="imageofself" onchange="loadImage(event)">
+                </div>
+
+                <br><br>
+                <!--button to validate player data and it to the form-->
+                <div style="text-align: center;">
+                    <input type="button" value="Register" name="registerbutton" id="registerbutton" onclick="return Register();">
+                </div>
+                <br>
+
+                <!--button acts as a bookmark that carries the player to the play area, unhides the play area and shows the game-->
+                <div style="text-align: center;">
+                    <input type="button" value="Play" name="playbutton" id="playbutton" onclick="return PlayGame();" disabled>
+                </div>
+                <br>
+
+                <!--button ends the game and calls the findPercentageScore() function-->
+                <div style="text-align: center;">
+                    <input type="button" value="Quit" name="quittbutton" id="quittbutton" onclick="return findPercentageScore();" disabled>
+                </div>
+                
+                <br><br>
+                <hr style="color: #F4E8BC; width: 70%">
+                <br>
+
+                <!--textarea will show name and stats for each player-->
+                <div style="text-align: center;">
+                    <label for="showpercentage" style="font-size: 17px;"> <b>Stats:</b> </label>
+                    <textarea id="showpercentage" name="showpercentage" rows="5" cols="65" disabled></textarea>
+                </div>
+
+                <br>
+                <!--textarea will show all the data in the array-->
+                <div style="text-align: center;">
+                    <label for="showallplayers" style="font-size: 17px;"> <b>All Players:</b> </label>
+                    <textarea id="showallplayers" name="showall" rows="5" cols="65" disabled></textarea>
+                </div>
+            </form>
+        </div> <!--end of box div-->
+
+        <br><br><br><br>
+
+        <div style="text-align: center;">
+            <input type="button" value="Results" id="resultsbutton" onclick="showAll()"> <!--results button allows player to see the results of their game-->
+        </div>
+
+        <br><br>
+
+        <div id="playarea" style="text-align: center; display: none;"> <!--play area is hidden until form is correctly filled out and player clicks "Play"-->
+            <!--shows player image-->
+            <input type="file"  accept="image/*" name="image" id="file" style="display: none;">
+            <img src="default_image.png" id="newimage" width="150" height="250" alt="player image">
+
+            <br>
+
+            <!--shows player name-->
+            <div id="playername" style="color: #DA84CE; font-family: 'Comic Sans MS'; font-size: 20px;"> playername </div>
+
+            <br>
+
+            <!--iframe with link to html page containing Jeopardy board-->
+            <iframe style="width: 90%; height: 740px" src="TASK_4_NEW_VERSION/game.html"></iframe>
+            <br><br>
+        </div>
+
+        <!--external script-->
+        <script  src="TASK_4_NEW_VERSION/newscript.js"></script>
+
+        <script>
+            /*forces the page to return to the top of the screen after reloading*/
+            window.onbeforeunload = function ()
+            {
+                window.scrollTo(0,0);
+            };
+
+            var PlayersData = []; //global array to hold player data
+
+            let commaspace = ", "; //this variable will be used to put a comma and space between the array elements
+
+            /*JS function to calculate age using DOB*/
+            function calculateAge() //function definition
+            {
+                var dob = new Date(document.getElementById("dob").value); //retrieves the date of birth entered by the player
+                var currentdate = new Date(); //stores the current date in the variable
+
+                var age = currentdate.getFullYear() - dob.getFullYear(); //subtracts the year of the current date from the year of the dob
+                var month = currentdate.getMonth() - dob.getMonth(); //subtracts the month of the current date from the month of the dob
+
+                /*subtracts 1 from the age calculated if the difference between months is less than 0, 
+                or is equal to 0 with the current date being less than the dob*/
+                if (month<0 || (month===0 && currentdate.getDate() < dob.getDate()))
+                {
+                    age--;
+                }
+
+                document.getElementById("age").value = age; //changes the placeholder in the field to the value calculated
+            }
+
+            /*JS validations*/
+            function Register()
+            {
+                /*retrieves the player data from the form and places them in the variables*/
+                var fname = document.forms["registration"]["First Name"].value;
+                var lname = document.forms["registration"]["Last Name"].value;
+                var age = document.forms["registration"]["playerage"].value;
+                var dob = document.forms["registration"]["DOB"].value;
+                var email = document.forms["registration"]["email"].value;
+                var gender = document.forms["registration"]["gender"].value;
+                var street = document.forms["registration"]["street"].value;
+                var city = document.forms["registration"]["city"].value;
+                var town = document.forms["registration"]["town"].value;
+                var country = document.forms["registration"]["country"].value;
+                var education = document.forms["registration"]["education"].value;
+                var image = document.forms["registration"]["imageofself"].value;
+
+                let emailFormat = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; //specifies the valid email format
+
+                if(fname.length <= 3) /*ensure name is more than 3 characters*/
+                {
+                    alert("First name must be more than 3 characters.");
+
+                    return false; //prevents the form from being submitted
+                }
+                if(age<13) /*ensure age is greater than 12*/
+                {
+                    alert("Player must be at older than 12 years old!");
+
+                    return false;
+                }
+                if(email != "" && !email.match(emailFormat)) /*ensure the email matches the format*/
+                {
+                    alert("Please enter a correct email format.");
+
+                    return false;
+                } /*ensuring that the player fills out all required fields*/
+                if(fname == "" || lname == "" || dob == "" || town == "" || education == "" || ((!document.getElementById("female").checked) && (!document.getElementById("male").checked)) || ((!document.getElementById("primary").checked) && (!document.getElementById("secondary").checked) && (!document.getElementById("tertiary").checked)) ){
+                    alert("Fill out all required fields!");
+                    return false;
+                }
+                alert("Registration success!"); //message shown after player passes all validation
+
+                /*adding the form data to the PlayersData global array*/
+                PlayersData.push(fname + commaspace + lname + commaspace + dob + commaspace + age + commaspace + email + commaspace + gender + commaspace + street + commaspace + city + commaspace + town + commaspace + country + commaspace + education + commaspace + image + "\n");
+                
+                console.table(PlayersData); //displays the array as a table in the console
+
+                /*disables form fields*/
+                document.getElementById("fname").disabled = true;
+                document.getElementById("lname").disabled = true;
+                document.getElementById("dob").disabled = true;
+                document.getElementById("email").disabled = true;
+                document.getElementById("male").disabled = true;
+                document.getElementById("female").disabled = true;
+                document.getElementById("addressstreet").disabled = true;
+                document.getElementById("addresscity").disabled = true;
+                document.getElementById("addresstown").disabled = true;
+                document.getElementById("addresscountry").disabled = true;
+                document.getElementById("primary").disabled = true;
+                document.getElementById("secondary").disabled = true;
+                document.getElementById("tertiary").disabled = true;
+                document.getElementById("img").disabled = true;
+
+                document.getElementById("playbutton").disabled = false; //enables the play button
+                document.getElementById("quittbutton").disabled = false; //enables the end game button
+                document.getElementById("registerbutton").disabled = true; //disables the register button
+
+                //hide para div and its elements
+                hide(document.getElementById("para"));
+                hide(document.getElementById("welcome"));
+                hide(document.getElementById("logo"));
+                
+                function hide(elements)
+                { 
+                    elements = elements.length ? elements : [elements];
+                    for (var index = 0; index < elements.length; index++)
+                    {
+                        elements[index].style.display = "none";
+                    }
+                }
+
+                /*shows navigation div*/
+                const nav = document.getElementById("navigation");
+                if(nav.style.display === "none")
+                {
+                    nav.style.display="block";
+                }
+            }
+
+            /*function to display the player image*/
+            var loadImage = function(event)
+            {
+                var image = document.getElementById("newimage");
+                image.src = URL.createObjectURL(event.target.files[0]);
+            }
+
+            /*function to show the play area and display player name*/
+            function PlayGame()
+            {           
+                const playarea = document.getElementById("playarea");
+
+                if(playarea.style.display === "none")
+                {
+                    playarea.style.display="block";
+                }
+
+                /*retrieves input from the forms and places it into the variable*/
+                var fname = document.forms["registration"]["First Name"].value;
+                var lname = document.forms["registration"]["Last Name"].value;
+
+                document.getElementById("playername").innerHTML = fname + " " + lname; //displays first and last name with a space
+
+                document.getElementById("playarea").scrollIntoView(); //scrolls to the play area
+            }
+        </script>
+    </body>
+</html>
